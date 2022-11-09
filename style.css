@@ -1,3 +1,22 @@
+body {
+    display: flex;
+    flex: auto;
+    flex-flow: column nowrap;
+}
+
+body * {
+    display: flex; 
+    flex: 0 auto;
+}
+
+button {
+    flex-grow: 0;
+}
+
+script {
+    display: none;
+}
+
 .grid *{
     display: flex;
     flex: auto;
@@ -9,19 +28,17 @@
     flex: auto;
 }
 
-.row1, 
-.row2, 
-.row3, 
-.row4 {
+.row {
     flex-flow: row nowrap;
 }
 
-.row1 *, 
-.row2 *, 
-.row3 *, 
-.row4 * {
+.row * {
     flex-flow: row nowrap;
     min-height: 6.25vh;
     min-width: 6.25vw;
     background-color: black;
 } 
+
+.etched {
+    background-color: pink;
+}
