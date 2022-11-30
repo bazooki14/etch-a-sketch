@@ -25,6 +25,27 @@ let blocks;
 let rows;
 let remove;
 
+function createStartingGrid() {
+    
+    gridSize = 16;
+
+    for (i = 0; i < gridSize; i++) {
+        row = document.createElement('div');
+        row.setAttribute('class', 'row');
+        grid.appendChild(row);
+        for (j = 0; j < gridSize; j++) {
+            block = document.createElement('div');
+            block.setAttribute('class', 'block');
+            row.appendChild(block);
+        };
+    };
+
+    addEffect();
+
+};
+
+createStartingGrid();
+
 function createGrid() {
 
     clearGrid();
