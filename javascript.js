@@ -21,9 +21,20 @@ let i;
 let j;
 let row;
 let block;
+let blocks;
+let rows;
+let remove;
 
 function createGrid() {
+
+    clearGrid();
+    
     gridSize = prompt('How many squares on each side of the grid?');
+    if (gridSize > 100 || isNaN(gridSize) || gridSize < 1) {
+        alert('Please enter a number between 1 and 100.');
+        gridSize = prompt('How many squares on each side of the grid?');
+    }
+
     for (i = 0; i < gridSize; i++) {
         row = document.createElement('div');
         row.setAttribute('class', 'row');
@@ -32,18 +43,29 @@ function createGrid() {
             block = document.createElement('div');
             block.setAttribute('class', 'block');
             row.appendChild(block);
-        }
-    }
+        };
+    };
+
+    addEffect();
+
+};
+
+
+function addEffect() {
     blocks = document.getElementsByClassName('block');
-    blocks.forEach(addHover())
-}
 
-function addHover(div) {
-    div.addEventListener('hover', (e) => {
-        etch();
-    })
-}
+    for (i = 0; i < blocks.length; i++) {
+        blocks[i].addEventListener('mouseenter', function() {
+            this.setAttribute('class', 'etched');
+        });
+    };
+};
 
-function etch() {
-    setAttribute('class', 'etched');
-}
+function clearGrid() {
+    if (gridSize > 0) {
+        for (i = 0; i < gridSize; i++) {
+            remove = document.querySelector('.row');
+            remove.remove();
+        };
+    };
+};
